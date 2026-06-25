@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard Demand NDC Sidoarjo</title>
+<meta charset="UTF-8">
+<title>Dashboard Demand NDC Sidoarjo</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f5f7fa;
+    padding:20px;
+}
+
+h1{
+    color:#1f4e79;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    width:250px;
+    margin-bottom:20px;
+}
+
+.value{
+    font-size:36px;
+    font-weight:bold;
+    color:#2e7d32;
+}
+</style>
+
 </head>
+
 <body>
 
 <h1>Dashboard Demand NDC Sidoarjo</h1>
 
-<h2>Dashboard sedang dibuat...</h2>
+<div class="card">
+    <div>Total Order</div>
+    <div class="value" id="totalOrder">Loading...</div>
+</div>
 
-<p>Data akan terhubung dengan Google Spreadsheet.</p>
+<script>
+
+fetch("https://script.google.com/macros/s/AKfycbxkcjN3jLdw2-GLRosThlHidqDWyjTY-ZQCah3xBw2EDK_Oz1nxpAGn0PF0JyA-OOo/exec")
+.then(response => response.json())
+.then(data => {
+    document.getElementById("totalOrder").innerHTML = data.totalOrder;
+})
+.catch(error => {
+    document.getElementById("totalOrder").innerHTML = "Error";
+});
+
+</script>
 
 </body>
 </html>
