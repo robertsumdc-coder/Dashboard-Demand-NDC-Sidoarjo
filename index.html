@@ -47,9 +47,10 @@ h1{
 fetch("https://script.google.com/macros/s/AKfycbxkcjN3jLdw2-GLRosThlHidqDWyjTY-ZQCah3xBw2EDK_Oz1nxpAGn0PF0JyA-OOo/exec")
 .then(response => response.json())
 .then(data => {
-    document.getElementById("totalOrder").innerHTML = data.total.length;
+    document.getElementById("totalOrder").innerHTML = data.length;
 })
 .catch(error => {
+    console.error(error);
     document.getElementById("totalOrder").innerHTML = "Error";
 });
 
